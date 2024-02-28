@@ -1,0 +1,61 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Bar Example</title>
+  <style>
+    /* Some basic styling for the search bar */
+    #searchBar {
+      padding: 10px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="searchBar" placeholder="Search...">
+  <ul id="searchResults"></ul>
+
+  <script>
+    const searchBar = document.getElementById('searchBar');
+    const searchResults = document.getElementById('searchResults');
+
+    // Sample data for demonstration
+    const data = [
+      'Apple',
+      'Banana',
+      'Cherry',
+      'Date',
+      'Grape',
+      'Lemon',
+      'Orange',
+      'Peach',
+      'Pear'
+    ];
+
+    searchBar.addEventListener('input', function () {
+      const searchText = searchBar.value.toLowerCase();
+      searchResults.innerHTML = ''; // Clear previous results
+
+      const filteredResults = data.filter(item => item.toLowerCase().includes(searchText));
+
+      filteredResults.forEach(result => {
+        const li = document.createElement('li');
+        li.textContent = result;
+        searchResults.appendChild(li);
+      });
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
